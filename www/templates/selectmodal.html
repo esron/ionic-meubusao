@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Voçê está em um ônibus?</h1>
+    <button class="button button-clear button-primary" ng-click="modalSelect.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding" ng-controller="SelectBusCtrl">
+    <h4>Identifique seu ônibus</h4>
+      <div class="list">
+       <label class="item item-input item-select">
+         <div class="input-label">
+           <h4>Onibus</h4>
+         </div>
+         <select ng-model="selectBus" ng-options="item as item.text for item in selecItems" ng-change="onChange()">
+         </select>
+       </label>
+      </div>
+      <button class="button" ng-click="closeSelectModal()">
+        <i class="icon ion-android-send"> Send position</i>
+      </button>
+  </ion-content>
+</ion-modal-view>
