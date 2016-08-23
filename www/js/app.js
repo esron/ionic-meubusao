@@ -175,7 +175,7 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
 
       //Wait until the map is loaded
       google.maps.event.addListenerOnce(map, 'idle', function(){
-          loadMarkers();
+          //loadMarkers();
           enableMap();
       });
 
@@ -231,7 +231,7 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
         enableMap();
       }
     }
-
+    /*
     function loadMarkers(){
       console.log("loadMarkers");
       var markers = [];
@@ -251,7 +251,7 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
       function onConnect() {
         // Once a connection has been made, make a subscription and send a message.
         console.log("markers: onConnect");
-        $rootScope.mqtt_client_load.subscribe("Onibus");
+        $rootScope.mqtt_client_load.subscribe("Onibus/+");
       }
 
       // called when the client loses its connection
@@ -266,20 +266,12 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
         console.log("onMessageArrived:"+message.payloadString);
         var data = JSON.parse(message.payloadString)
         var latLng = new google.maps.LatLng(data.lat, data.lng);
-        map.panTo(latLng);
-
-        var marker = new google.maps.Marker({
-            map: map,
-            animation: google.maps.Animation.DROP,
-            position: latLng
-        });
-
-        var infoWindowContent ="<h4> Ônibus "+bus.text+"</h4>"+"<h4>"+$filter('date')(data.time,'HH:mm')+"</h4>";
-        addInfoWindow(marker, infoWindowContent);
-        $rootScope.mqtt_client_load.disconnect();
+        markers.push(data);
       }
-    }
 
+      $rootScope.mqtt_client_load.unsubscribe("Onibus/+", {})
+    }
+    */
     function loadMarker(bus) {
       console.log("loadMarker");
 
