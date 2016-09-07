@@ -1,10 +1,10 @@
 <ion-modal-view>
-  <ion-header-bar class="bar bar-header bar-positive">
-    <h1 class="title"> Escolha um ônibus </h1>
-    <button class="button button-clear button-primary" ng-click="modalSearch.hide()">Cancel</button>
+  <ion-header-bar align-title="center" class="bar bar-header bar-positive">
+    <button class="button button-clear button-light button-primary icon ion-chevron-left" ng-click="modalSearch.hide()">&nbspVoltar</button>
+    <h1 class="title"> Escolha um Ônibus </h1>
   </ion-header-bar>
   <ion-content class="padding" ng-controller="SearchBusCtrl">
-    <h4>Identifique seu ônibus</h4>
+    <!--<h4>Identifique seu ônibus</h4>-->
       <div class="list" >
         <label class="item item-input item-select">
           <div class="input-label">
@@ -14,8 +14,8 @@
           </select>
         </label>
       </div>
-      <button class="button" ng-click="closeSearchModal()">
-        <i class="icon ion-android-send"> Buscar</i>
+      <button class="button button-block button-positive" ng-click="closeSearchModal()">
+         Buscar
       </button>
   </ion-content>
 </ion-modal-view>

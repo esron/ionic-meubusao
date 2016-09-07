@@ -51,7 +51,7 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
   // Modal suport variables and functions
   $ionicModal.fromTemplateUrl('templates/selectmodal.html', {
     scope:$rootScope,
-    animation:'slide-in-up'
+    animation:'slide-in-right'
   }).then(function(modal) {
     $rootScope.modalSelect = modal;
   });
@@ -62,7 +62,7 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
 
   $ionicModal.fromTemplateUrl('templates/searchmodal.html', {
     scope:$rootScope,
-    animation:'slide-in-up'
+    animation:'slide-in-right'
   }).then(function(modal) {
     $rootScope.modalSearch = modal;
   });
@@ -84,7 +84,7 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
         var dateTime = new Date();
 
         // Create a client instance
-        $rootScope.mqtt_client_send = new Paho.MQTT.Client("10.87.43.104", 9883, "myclientid_" + parseInt(Math.random() * 100, 10));
+        $rootScope.mqtt_client_send = new Paho.MQTT.Client("192.168.0.123", 9883, "myclientid_" + parseInt(Math.random() * 100, 10));
 
         // set callback handlers
         $rootScope.mqtt_client_send.onConnectionLost = onConnectionLost;
@@ -191,14 +191,14 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
 
     function disableMap(){
       $ionicLoading.show({
-        template: 'You must be connected to the Internet to view this map.'
+        template: 'Você precisa estar conectado à internet para visualizar o mapa.'
       });
     }
 
     function loadGoogleMaps(){
 
       $ionicLoading.show({
-        template: 'Loading Google Maps'
+        template: 'Carregando o Google Maps'
       });
 
       //This function will be called once the SDK has been loaded
@@ -276,7 +276,7 @@ $rootScope, $cordovaNetwork, $ionicModal, $filter, ConnectivityMonitor){
       console.log("loadMarker");
 
       // Create a client instance
-      $rootScope.mqtt_client_receive = new Paho.MQTT.Client("10.87.43.104", 9883, "myclientid_" + parseInt(Math.random() * 100, 10));
+      $rootScope.mqtt_client_receive = new Paho.MQTT.Client("192.168.0.123", 9883, "myclientid_" + parseInt(Math.random() * 100, 10));
 
       // set callback handlers
       $rootScope.mqtt_client_receive.onConnectionLost = onConnectionLost;
